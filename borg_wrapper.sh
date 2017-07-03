@@ -2,7 +2,7 @@
 
 
 # Base Variables
-version="v0.1"
+version="v0.2"
 
 
 #Loglevel for logfile (1 CRIT, 2 DEBUG, 3INFO)
