@@ -9,6 +9,7 @@ Basically this is just a tool who triggers borg-backup commands in the end.
 But it makes life easier  when you just have your project files and this wrapper will handle the rest for you.
 
 Since this is the very first version - please contribute or report bugs you find !
+After all, i hope you like it !
 
 ## What is borg backup
 IF you don't know it, you might dont want this wrapper - but give it a try !!
