@@ -1,0 +1,5 @@
+/test.sh
+*.log
+**/log
+!projects/sample.bw.sh
+projects/
