@@ -64,7 +64,7 @@ Suggestions are welcome, too !!!
 
 ## Changelog
 v0.1 	first shot of this thingy - let's give it a try ...
-
+v0.2	fixed some orphaned files - first working tryout version 
 ## 2DOS
 Those features might be in possible upcoming releases 
 - treat return codes of borg
