@@ -15,10 +15,9 @@ function bw_log {
 			t_bw_logtag="[-]"
 		;;
 	esac
-	#echo " $1 - $2 - $t_bw_logtag"
 	# check for logoutput
-	if [[ $1 -le $bw_loglevel ]] ; then
-		echo -e "$t_bw_logtag\t$2"
+	if [[ $1 -le ${bw_loglevel} ]] ; then
+		echo -e "${t_bw_logtag}\t$2"
 	fi
 	
 }
