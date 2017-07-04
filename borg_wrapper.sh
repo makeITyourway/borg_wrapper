@@ -218,7 +218,7 @@ case ${bw_action} in
 		bw_log "3" "running ACTION: ${bw_action}"
 		f-bw_shell
 		bw_log "3" "finished ACTION: ${bw_action}"
-		
+	;;		
 			
 esac
 	bw_log "3" "Exiting BORG-WRAOOER - thanks for using me ;)"
