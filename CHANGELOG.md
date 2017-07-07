@@ -43,3 +43,5 @@ Those features might be in possible upcoming releases
 ## KNOWN ISSUES
 - not working with curlftpfs anymore (stopped working since version 0.9.2
 Try using version 0.9.1 if you have no alternatives  - works perfectly
+- Issue when specifying "-c" - running into backup ! (fixed !)
+

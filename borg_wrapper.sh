@@ -35,7 +35,7 @@ while (( "$#" )); do
 
 	case $1 in
 		### ACTIONS 
-		-b|--backup|-c|--create)
+		-b|--backup)
 			check_action
 			bw_action="backup"
 			bw_log "3" "selected action: ${bw_action}"
