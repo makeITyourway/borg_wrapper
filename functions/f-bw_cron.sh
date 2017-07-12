@@ -15,12 +15,17 @@ function f-bw_cron {
 
 		# backing up
 	bw_log "3" "Triggering Backup within ${bw_action}"
-	${borg_bin} create -v --stats ${bw_repository}::${bw_backupnowname} ${bw_backupdirs} ${t_bw_excludedirs}
+	${borg_bin} create ${bw_additional_options} --stats ${bw_repository}::${bw_backupnowname} ${bw_backupdirs} ${t_bw_excludedirs}
 	f-bw_catcherror $?
 
 		# Verify the backup
 	bw_log "3" "Triggering Check / Verification within ${bw_action}"
-	${borg_bin} check -v ${bw_repository}::"${bw_backupnowname}" -v
+	${borg_bin} check ${bw_additional_options} ${bw_repository}::"${bw_backupnowname}" -v
+	f-bw_catcherror $?
+
+		# PRUNE old Backups
+	bw_log "3" "Triggering PRUNE of old backups ${bw_action}"
+	${borg_bin} prune ${bw_additional_options} ${bw_repository} --prefix ${bw_backupprefix} ${bw_backupkeeptime}
 	f-bw_catcherror $?
 
 		#running PRE Task

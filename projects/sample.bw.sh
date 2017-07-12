@@ -99,5 +99,6 @@
 
 
 ### #do not touch me here
+borg_bin="/usr/bin/borg"
 bw_backupnowname="${bw_backupprefix}${bw_backupsuffix}"
 bw_log "3" "Successfully sourced $bw_project "

@@ -16,13 +16,6 @@ done
 bw_loglevel="1"
 
 
-### binaries
-borg_bin="/usr/bin/borg"
-f-bw_checkborginstallation
-borg_bin="${borg_bin} ${bw_additional_options}"
-
-
-
 
 bw_log "3" "Borg wrapper starting"
 
@@ -119,7 +112,7 @@ while (( "$#" )); do
 		### READ PROJECT
 		-p|--project)
 			if [[ -z "$2" ]] ; then
-				bw_log"1" "Missing project name - exiting"
+				bw_log "1" "Missing project name - exiting"
 				exit 1
 			elif [[ "$2" == "all" ]] ; then
 				bw_log "3" "you hit a special keyword !! - congrats - running through all projects (excluding smaple)"
@@ -162,6 +155,11 @@ done
 
 bw_log "3" "successfully parsed the CLI - params"
 
+
+### binaries
+#borg_bin="/usr/bin/borg"
+f-bw_checkborginstallation
+#borg_bin="${borg_bin} ${bw_additional_options}"
 
 
 

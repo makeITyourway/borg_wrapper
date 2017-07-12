@@ -16,7 +16,7 @@ function f-bw_backup {
 	fi
 
 	bw_log "2" "Starting ${bw_action}"
-	${borg_bin} create --stats ${t_bw_compression} ${bw_repository}::${bw_backupnowname} ${bw_backupdirs} ${t_bw_excludedirs}
+	${borg_bin} create ${bw_additional_options} --stats ${t_bw_compression} ${bw_repository}::${bw_backupnowname} ${bw_backupdirs} ${t_bw_excludedirs}
 	f-bw_catcherror $?
 #catcherror
 	bw_log "2" "Finished ${bw_action}"

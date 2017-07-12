@@ -3,7 +3,7 @@ function f-bw_init {
                 bw_log "3" "${bw_action} - Checking if repo exists"
                 if [[ ! -d "${bw_repository}" ]] ; then
 			#create the repo
-                        ${borg_bin} init ${bw_repository}
+                        ${borg_bin} init ${bw_additional_options} ${bw_repository}
 			f-bw_catcherror $?
                         bw_log "2" "${bw_action} - Repo ${bw_repository} initialized"
                         exit 0

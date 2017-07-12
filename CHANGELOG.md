@@ -3,6 +3,8 @@
 ### v1.0-pre
 - fixed some minor bugs
 - added POST and PRE Tasks for CRON RUN (--cron)
+- fixed binary allocation bug
+- added PRUNE to the CRON RUN (--cron)
 
 ### v0.3 (20170704) 
 - fixed several code quality issues
@@ -39,7 +41,8 @@ Those features might be in possible upcoming releases
 - [x] v0.3 add compression for backups
 - [x] v0.3 add mount command
 - [x] fix pathes for projects / configs
-- [x] add PRE and POST Execution lines 
+- [x] add PRE and POST Execution tasks
+- [x] add PRUNE to the automated cron task
 - [ ] implement ICINGA Check (yeahyeahyeah)
 - [ ] mailing on errors ?
 - [ ] -p all option

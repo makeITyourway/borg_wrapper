@@ -46,7 +46,7 @@ Trigger a backup of the project specified by --project
 Check the projects repository content  
 
 `--cron`  
-Trigger a complete Backup including verification - best used from cron cmdline  
+Trigger a complete Backup including verification and prune - best used from cron cmdline  
 
 `-i, --init`  
 Initialize the projects repository  
