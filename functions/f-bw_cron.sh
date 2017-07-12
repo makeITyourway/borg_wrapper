@@ -9,6 +9,10 @@ function f-bw_cron {
 	done
 
 	bw_log "2" "Starting ${bw_action}"
+
+		#running PRE Task
+	f-bw_exectask "PRE BACKUP TASK" "${bw_prebackuptask}" 
+
 		# backing up
 	bw_log "3" "Triggering Backup within ${bw_action}"
 	${borg_bin} create -v --stats ${bw_repository}::${bw_backupnowname} ${bw_backupdirs} ${t_bw_excludedirs}
@@ -19,6 +23,8 @@ function f-bw_cron {
 	${borg_bin} check -v ${bw_repository}::"${bw_backupnowname}" -v
 	f-bw_catcherror $?
 
+		#running PRE Task
+	f-bw_exectask "POST BACKUP TASK" "${bw_postbackuptask}"
 
 #catcherror
 	bw_log "2" "Finished ${bw_action}"

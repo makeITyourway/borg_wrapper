@@ -64,6 +64,21 @@
 	bw_backupsuffix="$(date +%Y%m%d-%H%M%S)"
 
 
+#PRE BACKUP TASK for CRON
+# You can define a task or a list of tasks here (BASH SYNTAX ! watch out for correct escape pattern)
+# "" means that nothing will be done
+# The command will be executed before a --cron will run
+	# Example bw_prebackuptask="/usr/bin/sudo date"
+	bw_prebackuptask=""
+
+#POST BACKUP TASK for CRON
+# You can define a task or a list of tasks here (BASH SYNTAX ! watch out for correct escape pattern) 
+# "" means that nothing will be done
+# The command will be executed after a successful --cron command
+	# Example bw_postbackuptask="/usr/bin/sudo date"
+	bw_postbackuptask=""
+
+
 #Additional cli options 
 #feel free to specify additional options - be aware that this is used for all brog_commands
 	# Example: bw_additional_options="--debug --warning"

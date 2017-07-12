@@ -1,25 +1,23 @@
-# borg_backup_wrapper
-
 ## What is this ?
-As a long time duplicity user (knowing all the ok's and nok's) i felt a little funny and tried something else.
+As a long time duplicity user (knowing all the ok's and nok's) I felt a little funny and tried something else.
 BORG BACKUP ( https://borgbackup.readthedocs.io/en/stable/ )
-It's a great tool offering more than duplicity has and i think it is even more performant than duply in the end.
+It's a great tool offering more than duplicity has and I think it is even more performant than duply in the end.
 
-As always, i was not 100% comfortable with the usage so i created this little wrapper ontop of the BORG BACKUP PROJECT.
+As always, I was not 100% comfortable with the usage so I created this little wrapper ontop of the BORG BACKUP PROJECT.
 The wrapper just simplifies my day to day work a lot and i'd love to share this little helper with you.
-As mentioned, i only added the "everyday" handling into the wrapper to make life just a little bit easier, if you need special stuff like passphrase change or delete, refer to the `--shell` command (you will like it!).
+As mentioned, I only added the "everyday" handling into the wrapper to make life just a little bit easier, if you need special stuff like passphrase change or delete, refer to the `--shell` command (you will like it!).
 
 Basically this is just a tool who triggers borg-backup commands in the end.
 
 Since this is the very first version - please contribute or report bugs you find !
-After all, i hope you like it !
+After all, I hope you like it !
 
 [Of course you can donate, if you like what you see](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40makeityourway%2ede&lc=DE&item_name=makeITyourway&item_number=borg%2dbackup&no_note=0&cn=Mitteilung%20an%20den%20H%c3%a4ndler%3a&no_shipping=2&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
 ### What is borg backup
 IF you don't know it, you might dont want this wrapper - but give it a try !!
 Maybe one of the coolest backup tools around.
-But i won't tell you what it is - read here: [Borg Backup Website](https://borgbackup.readthedocs.io/en/stable/)
+But I won't tell you what it is - read here: [Borg Backup Website](https://borgbackup.readthedocs.io/en/stable/)
 
 ## Usage
 1) Install borgbackup for your OS. [Read this for more instructions](https://borgbackup.readthedocs.io/en/stable/installation.html)
@@ -37,14 +35,14 @@ This line wil trigger a backup and a check / verify of "YourProjectName" at 01:0
 
 ### Adaption
 `-p, --project [project name|/path/to/project.bw.sh]`  
-specify project name  
+specify project name either by name or path .
 Reference created projects in /projects/ directory (see sample.bw.sh)  
 
 ### Actions
 `-b,--backup`  
 Trigger a backup of the project specified by --project
 
-`-C, --check <name of specific backup artefact>`  
+`-C, --check `<name of specific backup artefact>`  
 Check the projects repository content  
 
 `--cron`  
@@ -76,11 +74,13 @@ Show this help
 Enable debugging  
 
 ## Structure
-`- borg-wrapper.sh`
-The Borg Wrapper script - try `./borg-wrapper.sh --help` for more information.
-`functions`
-The functions directory - containing all functions and tools required for the wrapper.
-`projects`
+`borg-wrapper.sh`  
+The Borg Wrapper script - try `./borg-wrapper.sh --help` for more information.  
+
+`functions`  
+The functions directory - containing all functions and tools required for the wrapper.  
+
+`projects`  
 The projects diretory - Copy `sample.bw.sh` to `myownproject.bw.sh` and modify the values to your needs.
 Read the comments carefully !
 

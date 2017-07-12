@@ -1,5 +1,9 @@
 
 ## Changelog
+### v1.0-pre
+- fixed some minor bugs
+- added POST and PRE Tasks for CRON RUN (--cron)
+
 ### v0.3 (20170704) 
 - fixed several code quality issues
 - moved repo availability check to base functions
@@ -35,13 +39,13 @@ Those features might be in possible upcoming releases
 - [x] v0.3 add compression for backups
 - [x] v0.3 add mount command
 - [x] fix pathes for projects / configs
+- [x] add PRE and POST Execution lines 
 - [ ] implement ICINGA Check (yeahyeahyeah)
 - [ ] mailing on errors ?
 - [ ] -p all option
 
-
 ## KNOWN ISSUES
-- not working with curlftpfs anymore (stopped working since version 0.9.2
+- not working with curlftpfs anymore (stopped working since version curlftpfs-0.9.2
 Try using version 0.9.1 if you have no alternatives  - works perfectly
 - Issue when specifying "-c" - running into backup ! (fixed !)
 

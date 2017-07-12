@@ -2,7 +2,7 @@
 
 
 # Base Variables
-version="v0.3"
+version="v1.0-pre"
 
 # READ DIR 
 t_dir=$(dirname $0)
@@ -169,7 +169,6 @@ bw_log "3" "successfully parsed the CLI - params"
 f-bw_checkprojectconfig
 	bw_log "3" "exporting BORG_PAASSPHRASE with password"
 	export BORG_PASSPHRASE="${bw_password}"
-
 
 #### Run triggered Actions 
 case ${bw_action} in 

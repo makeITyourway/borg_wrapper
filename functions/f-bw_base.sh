@@ -73,14 +73,15 @@ function f-bw_checkconfigvalue {
 	#$2 configname
 	#$3 exit (yes / no)
 	if [[ -z "$1" ]] ; then
-		bw_log "1" "Project Config Value $2 is unset - exitin - exiting"
 		if [[ "$3" -eq "1" ]] ; then
+			bw_log "1" "Project Config Value $2 is unset - exiting"
 			exit 1
 		fi
+		
 	fi
 
 }
-#Check and validate the config values inside the project config
+#Check and validate the config values inside the project config (1=break, 0=run ahead)
 function f-bw_checkprojectconfig {
 	f-bw_checkconfigvalue "${bw_project}" "\$bw_project" "1"
 	f-bw_checkconfigvalue "${bw_repository}" "\$bw_repository" "1"
@@ -93,5 +94,23 @@ function f-bw_checkprojectconfig {
 	f-bw_checkconfigvalue "${bw_backupkeeptime}" "\$bw_backupkeeptime" "1"
 	f-bw_checkconfigvalue "${bw_backupprefix}" "\$bw_backupprefix" "1"
 	f-bw_checkconfigvalue "${bw_backupsuffix}" "\$bw_backupsuffix" "1"
+	f-bw_checkconfigvalue "${bw_prebackuptask}" "\$bw_prebackuptask" "0"
+	f-bw_checkconfigvalue "${bw_postbackuptask}" "\$bw_postbackuptask" "0"
 		
+}
+
+function f-bw_exectask {
+		#$1 - Desription (PRE POST)
+		#$2 = Task
+	if [[ ! -z "$2" ]] ; then
+		bw_log "2" "Running ${1}"
+		bw_log "2" "${2}: ${2}"
+
+		t_return=$(${2})
+
+		f-bw_catcherror $?
+		bw_log "3" "${t_return}"
+	else
+		bw_log "3" "NO ${1} defined - skipping"
+	fi
 }
