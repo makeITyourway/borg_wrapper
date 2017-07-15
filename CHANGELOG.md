@@ -5,6 +5,7 @@
 - added POST and PRE Tasks for CRON RUN (--cron)
 - fixed binary allocation bug
 - added PRUNE to the CRON RUN (--cron)
+- fixed a bug regarding remote repos (via SSH)
 
 ### v0.3 (20170704) 
 - fixed several code quality issues

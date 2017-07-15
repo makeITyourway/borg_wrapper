@@ -22,10 +22,12 @@ function check_action {
 function f-bw_repostate {
 	bw_log "3" "${bw_action} - Checking if repo exists"
 # WORKAROUnd NEEDED FOR SSH REPOS
-#        if [[ ! -d "${bw_repository}" ]] ; then
-#                bw_log "1" "${bw_action} - You need to initialize (init -i)  a repo first - try $0 -i"
-#                exit 1
-#        fi
+	if [[ -z $(echo $bw_repository | grep -i ssh) ]] ; then 
+	        if [[ ! -d "${bw_repository}" ]] ; then
+	                bw_log "1" "${bw_action} - You need to initialize (init -i)  a repo first - try $0 -i"
+	                exit 1
+        	fi
+	fi
 }
 
 # check if borg backup is installed - verify binaries
