@@ -21,8 +21,8 @@ function check_action {
 # Check if repository is created and available
 function f-bw_repostate {
 	bw_log "3" "${bw_action} - Checking if repo exists"
-# WORKAROUnd NEEDED FOR SSH REPOS
-	if [[ -z $(echo $bw_repository | grep -i ssh) ]] ; then 
+		# do not verify remote repo - give it to borg !
+	if [[ -z $(echo $bw_repository | grep -i @) ]] ; then 
 	        if [[ ! -d "${bw_repository}" ]] ; then
 	                bw_log "1" "${bw_action} - You need to initialize (init -i)  a repo first - try $0 -i"
 	                exit 1
