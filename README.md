@@ -84,6 +84,8 @@ The functions directory - containing all functions and tools required for the wr
 The projects diretory - Copy `sample.bw.sh` to `myownproject.bw.sh` and modify the values to your needs.
 Read the comments carefully !
 
+`scripts`  
+A set of scripts created to support, help and give you some hints what you can do - ENJOY!  
 
 ## Disclaimer
 We (makeITyourway) nor any contributor are taking any guarantee for this script, your backups or anything else.
