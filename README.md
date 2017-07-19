@@ -48,6 +48,9 @@ Check the projects repository content
 `--cron`  
 Trigger a complete Backup including verification and prune - best used from cron cmdline  
 
+`--icinga <warning,critical>` 
+Test against the given values (config or cli) to generate icinga state and values for backup verification  
+
 `-i, --init`  
 Initialize the projects repository  
 
@@ -82,7 +85,8 @@ The functions directory - containing all functions and tools required for the wr
 
 `projects`  
 The projects diretory - Copy `sample.bw.sh` to `myownproject.bw.sh` and modify the values to your needs.
-Read the comments carefully !
+Read the comments carefully !   
+A reserved word you should not use is "all". This will become a "feature" in the future.
 
 `scripts`  
 A set of scripts created to support, help and give you some hints what you can do - ENJOY!  

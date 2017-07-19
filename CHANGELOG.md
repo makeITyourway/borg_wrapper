@@ -1,4 +1,3 @@
-
 ## Changelog
 ### v1.0-pre
 - fixed some minor bugs
@@ -6,6 +5,7 @@
 - fixed binary allocation bug
 - added PRUNE to the CRON RUN (--cron)
 - fixed a bug regarding remote repos (via SSH)
+- added icinga check
 
 ### v0.3 (20170704) 
 - fixed several code quality issues
@@ -44,12 +44,13 @@ Those features might be in possible upcoming releases
 - [x] fix pathes for projects / configs
 - [x] add PRE and POST Execution tasks
 - [x] add PRUNE to the automated cron task
-- [ ] implement ICINGA Check (yeahyeahyeah)
+- [x] implement ICINGA Check (yeahyeahyeah)
 - [ ] mailing on errors ?
-- [ ] -p all option
+- [ ] -p all option (not in v1.0)
 
 ## KNOWN ISSUES
 - not working with curlftpfs anymore (stopped working since version curlftpfs-0.9.2
 Try using version 0.9.1 if you have no alternatives  - works perfectly
 - Issue when specifying "-c" - running into backup ! (fixed !)
-
+- there seems to be a bug when specifying the project dir and file instead of the name
+- add Artefact to --list command for detailed listing

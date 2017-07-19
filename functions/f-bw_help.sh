@@ -12,6 +12,7 @@ function f-bw_help {
 	echo -e "\t-b,--backup\n\t\ttrigger a backup of the project"
 	echo -e "\t-C, --check <name of specific BACKUP artefact>\n\t\tCheck the last projects repository content"
 	echo -e "\t--cron\n\t\tTrigger a complete BACKUP including VERIFICATION adn PRUNE - best used from cron cmdline"
+	echo -e "\t--icinga <warn>,<crit>\n\t\tTrigger the icinga Check, make sure to set warning and critical seperated by comma"
 	echo -e "\t-i, --init\n\t\tINITIALIZE the projects repository"
 	echo -e "\t-I, --info <name of specific backup artefact>\n\t\tList INFOS of the backup artefact content"
 	echo -e "\t-l, --list\n\t\tLIST the projects repository content"

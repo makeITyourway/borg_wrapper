@@ -79,6 +79,15 @@
 	bw_postbackuptask=""
 
 
+#ICINGA VALUES FOR WARN AND CRIT (can be set via option in CLI whcih will overrite those settings)
+# You can define warning and critical values for when the --icinga option should represent the desired state
+# Settings are in SECONDS (s) 
+# use 86400 for a day, 90000 for 25 hours, 604800 for a week and so on ...
+	#Example: bw_icingaoptions="WARN,CRIT"
+	#Example: bw_icingaoptions="90000,604800"
+	bw_icingaoptions="90000,608400"
+
+
 #Additional cli options 
 #feel free to specify additional options - be aware that this is used for all brog_commands
 	# Example: bw_additional_options="--debug --warning"

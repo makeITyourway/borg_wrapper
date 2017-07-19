@@ -27,7 +27,35 @@ while (( "$#" )); do
 #		echo "--> $1 ($2)"
 
 	case $1 in
-		### ACTIONS 
+	### READ PROJECT
+		-p|--project)
+			if [[ -z "$2" ]] ; then
+				bw_log "1" "Missing project name - exiting"
+				exit 1
+			elif [[ "$2" == "all" ]] ; then
+				bw_log "3" "you hit a special keyword !! - congrats - running through all projects (excluding smaple)"
+				for t_project in ${t_dir}/projects/* ; do
+    					if [[ -z $(echo ${t_project} | grep "sample.bw.sh") ]] ; then
+						# source ${t_project}
+						echo $t_project
+						#$0 --project ${t_project} --"${bw_action}"
+					fi
+					
+				done
+			else
+				bw_o_project=$2
+				if [[ -f "${t_dir}/projects/${bw_o_project}.bw.sh" ]] ; then
+					source ${t_dir}/projects/${bw_o_project}.bw.sh
+				elif [[ -f ${bw_o_project} ]] ; then
+					source ${bw_o_project}
+				else 
+					bw_log "1" "could not find projectfile ${bw_o_project} - exiting"
+					exit 1
+				fi
+			fi
+			shift
+		;;
+	### ACTIONS 
 		-b|--backup)
 			check_action
 			bw_action="backup"
@@ -52,6 +80,20 @@ while (( "$#" )); do
                         bw_action="cron"
 			bw_log "3" "selected action: ${bw_action}"
 			
+		;;
+		--icinga)
+			check_action
+			bw_action="icinga"
+			bw_log "3" "selected action: ${bw_action}"
+			if [[ -z "$2" ]] && [[ -z "${bw_icingaoptions}" ]] ; then
+				bw_log "1" "Missing icinga vlaues warning,critical (cli or conf)- exiting"
+				exit 1
+			elif [[ -z "$2" ]] && [[ ! -z "${bw_icingaoptions}" ]] ; then
+					bw_o_icingavalues=${bw_icingaoptions}
+			else
+				bw_o_icingavalues="${2}"
+				shift
+			fi
 		;;
 		-i|--init)
 			check_action
@@ -109,34 +151,6 @@ while (( "$#" )); do
 			bw_log "3" "selected action: ${bw_action}"
 		;;
 			
-		### READ PROJECT
-		-p|--project)
-			if [[ -z "$2" ]] ; then
-				bw_log "1" "Missing project name - exiting"
-				exit 1
-			elif [[ "$2" == "all" ]] ; then
-				bw_log "3" "you hit a special keyword !! - congrats - running through all projects (excluding smaple)"
-				for t_project in ${t_dir}/projects/* ; do
-    					if [[ -z $(echo ${t_project} | grep "sample.bw.sh") ]] ; then
-						# source ${t_project}
-						echo $t_project
-						#$0 --project ${t_project} --"${bw_action}"
-					fi
-					
-				done
-			else
-				bw_o_project=$2
-				if [[ -f "${t_dir}/projects/${bw_o_project}.bw.sh" ]] ; then
-					source ${t_dir}/projects/${bw_o_project}.bw.sh
-				elif [[ -f ${bw_o_project} ]] ; then
-					source ${bw_o_project}
-				else 
-					bw_log "1" "could not find projectfile ${bw_o_project} - exiting"
-					exit 1
-				fi
-			fi
-			shift
-		;;
 
 		### OPTIONS
 		-d)
@@ -183,6 +197,11 @@ case ${bw_action} in
 	cron)
 		bw_log "3" "running ACTION: ${bw_action}"
 		f-bw_cron ${bw_o_checkbck}
+		bw_log "3" "finished ACTION: ${bw_action}"
+	;;
+	icinga)
+		bw_log "3" "running ACTION: ${bw_action}"
+		f-bw_icinga ${bw_o_icingavalues}
 		bw_log "3" "finished ACTION: ${bw_action}"
 	;;
 	init)
