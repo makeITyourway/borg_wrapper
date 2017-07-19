@@ -28,7 +28,7 @@ But I won't tell you what it is - read here: [Borg Backup Website](https://borgb
 
 If this worked, you can add a cronjob to your crontab:
 `00 01 * * * /path/to/borg_wrapper/borg_wrapper.sh --project <YourProjectName> --cron`
-This line wil trigger a backup and a check / verify of "YourProjectName" at 01:00 am.
+This line wil trigger a backup, a check and a prune of "YourProjectName" with the given config at 01:00 am.
 
 
 ## Features
@@ -42,7 +42,7 @@ Reference created projects in /projects/ directory (see sample.bw.sh)
 `-b,--backup`  
 Trigger a backup of the project specified by --project
 
-`-C, --check `<name of specific backup artefact>`  
+`-C, --check <name of specific backup artefact>`  
 Check the projects repository content  
 
 `--cron`  
