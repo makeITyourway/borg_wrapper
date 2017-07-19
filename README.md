@@ -49,7 +49,7 @@ Check the projects repository content
 Trigger a complete Backup including verification and prune - best used from cron cmdline  
 
 `--icinga <warning,critical>` 
-Test against the given values (config or cli) to generate icinga state and values for backup verification  
+Test against the given values (config or cli) to generate icinga state and values for backup verification. CLI params will overwrite the config file params.   
 
 `-i, --init`  
 Initialize the projects repository  
