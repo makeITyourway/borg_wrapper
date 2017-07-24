@@ -32,6 +32,7 @@ while (( "$#" )); do
 			if [[ -z "$2" ]] ; then
 				bw_log "1" "Missing project name - exiting"
 				exit 1
+			# start of implementation for ALL Keyword
 			elif [[ "$2" == "all" ]] ; then
 				bw_log "3" "you hit a special keyword !! - congrats - running through all projects (excluding smaple)"
 				for t_project in ${t_dir}/projects/* ; do
@@ -40,8 +41,9 @@ while (( "$#" )); do
 						echo $t_project
 						#$0 --project ${t_project} --"${bw_action}"
 					fi
-					
+					exit 0
 				done
+			# end of implementation for ALL Keyboard
 			else
 				bw_o_project=$2
 				if [[ -f "${t_dir}/projects/${bw_o_project}.bw.sh" ]] ; then
@@ -158,7 +160,7 @@ while (( "$#" )); do
 			bw_o_debug="--debug"
 			bw_loglevel="3"
 		;;
-		-h|--help)
+		-h|--help|*)
 			f-bw_help
 			exit 0
 		;;
@@ -168,6 +170,12 @@ while (( "$#" )); do
 done
 
 bw_log "3" "successfully parsed the CLI - params"
+
+
+if [[  -z "${bw_action}" ]] ; then
+	f-bw_help
+	exit 0
+fi	
 
 
 ### binaries
@@ -234,6 +242,10 @@ case ${bw_action} in
 		bw_log "3" "running ACTION: ${bw_action}"
 		f-bw_shell
 		bw_log "3" "finished ACTION: ${bw_action}"
+	;;
+	*)
+		f-bw_help
+		exit 0
 	;;		
 			
 esac
