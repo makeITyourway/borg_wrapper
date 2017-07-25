@@ -20,7 +20,7 @@ Maybe one of the coolest backup tools around.
 But I won't tell you what it is - read here: [Borg Backup Website](https://borgbackup.readthedocs.io/en/stable/)
 
 ## Usage
-1) Install borgbackup for your OS. [Read this for more instructions](https://borgbackup.readthedocs.io/en/stable/installation.html)
+1) Install borgbackup for your OS. [Read this for more instructions](https://borgbackup.readthedocs.io/en/stable/installation.html) Binary version has been tested, too. Configure the location of the binary in the project config file (at the bottom)
 2) Copy file `projects/sample.bw.sh` to `projects/<YourProjectName>.bw.sh` and modify it to your needs (read the comments wisely!)  
 3) init the repository `borg-wrapper.sh -p <YourProjectName> --init`  
 4) create a backup `borg-wrapper.sh -p <YourProjectName> --backup`  
@@ -76,7 +76,7 @@ Show this help
 `-d, --debug`  
 Enable debugging  
 
-## Structure
+## Folder structure
 `borg-wrapper.sh`  
 The Borg Wrapper script - try `./borg-wrapper.sh --help` for more information.  
 

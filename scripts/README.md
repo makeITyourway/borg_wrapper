@@ -1,4 +1,4 @@
-# OPTIONAL SCRIPTS TO USE FOR BORG_WRAPPER
+# OPTIONAL SCRIPTS TO USE FOR makeITyourway's BORG_WRAPPER
 
 ## cronrunner.borg_wrapper.sample.sh
 A Wrapper that ensures, all your backups are startet right after another. This ensures, Backups are running in the shortest period of time.

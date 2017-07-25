@@ -1,5 +1,0 @@
-/test.sh
-*.log
-**/log
-projects/*
-!projects/sample.bw.sh

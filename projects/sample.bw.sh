@@ -104,10 +104,24 @@
 
 
 
+#############################
+#/!\ do not touch me here /!\
+#############################
 
-
-
-### #do not touch me here
+# Borg Binary location (should fit for most systens, modify if you are using the binary version or different location)
 borg_bin="/usr/bin/borg"
+
+# Borg generated Backupname - should not be touched - you do have config options above 
 bw_backupnowname="${bw_backupprefix}${bw_backupsuffix}"
+
+
+
+
+
+
+################################################
+#/!\/!\ no shit - really don't touch this /!\/!\
+################################################
+
+# generate a log entry when project file was read successfully
 bw_log "3" "Successfully sourced $bw_project "

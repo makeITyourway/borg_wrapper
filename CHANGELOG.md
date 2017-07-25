@@ -6,6 +6,7 @@
 - added PRUNE to the CRON RUN (--cron)
 - fixed a bug regarding remote repos (via SSH)
 - added icinga check
+- added scripts directory for additional tooling (cronrunner)
 
 ### v0.3 (20170704) 
 - fixed several code quality issues
