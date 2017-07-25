@@ -1,5 +1,5 @@
 ## Changelog
-### v1.0-pre
+### v1.0 (20170725)
 - fixed some minor bugs
 - added POST and PRE Tasks for CRON RUN (--cron)
 - fixed binary allocation bug
@@ -7,6 +7,8 @@
 - fixed a bug regarding remote repos (via SSH)
 - added icinga check
 - added scripts directory for additional tooling (cronrunner)
+- fixed minor bug when calling script without params (show help)
+- general cleanup for v1.0
 
 ### v0.3 (20170704) 
 - fixed several code quality issues
