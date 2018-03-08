@@ -22,14 +22,15 @@ But I won't tell you what it is - read here: [Borg Backup Website](https://borgb
 ## Usage
 1) Install borgbackup for your OS. [Read this for more instructions](https://borgbackup.readthedocs.io/en/stable/installation.html) Binary version has been tested, too. Configure the location of the binary in the project config file (at the bottom)
 2) Copy file `projects/sample.bw.sh` to `projects/<YourProjectName>.bw.sh` and modify it to your needs (read the comments wisely!)  
-3) init the repository `borg-wrapper.sh -p <YourProjectName> --init`  
-4) create a backup `borg-wrapper.sh -p <YourProjectName> --backup`  
-5) check creation of backup `borg-wrapper.sh -p <YourProjectName> --list`  
+3) Init the repository `borg-wrapper.sh -p <YourProjectName> --init`  
+4) Create a backup `borg-wrapper.sh -p <YourProjectName> --backup`  
+5) Check creation of backup `borg-wrapper.sh -p <YourProjectName> --list`  
 
 If this worked, you can add a cronjob to your crontab:
 `00 01 * * * /path/to/borg_wrapper/borg_wrapper.sh --project <YourProjectName> --cron`
 This line wil trigger a backup, a check and a prune of "YourProjectName" with the given config at 01:00 am.
 
+6) If you want to set global configuration (over all projects) copy global.sample.bw.sh to global.bw.sh and comment out the configurations you want to set globally. For more Instuctions read projects/global.sample.bw.sh
 
 ## Features
 

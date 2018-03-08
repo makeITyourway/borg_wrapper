@@ -54,7 +54,7 @@ function f-bw_checkartefactoption {
 #verify given directory 
 function f-bw_checkdiroption {
 	if [[ ! -d "$1" ]] ; then 
-		w_log "1" "Given directory is not a valid directory to mount ($1) - exiting"
+		bw_log "1" "Given directory is not a valid directory to mount ($1) - exiting"
 		exit 1
 	else
 		return 0
@@ -66,6 +66,7 @@ function f-bw_checkdiroption {
 function f-bw_catcherror {
 	if [[ $1 -ne "0" ]] ; then
 		bw_log "1" "Command operation ${bw_action} failed with RETURN CODE $1. Please see output above for more Information - exiting"
+		bw_sendmail "1" "ERROR" "Critical Error during ${bw_action} of ${bw_project}. EXITED BACKUP TOO EARLY !"	
 		exit $1
 	fi
 }

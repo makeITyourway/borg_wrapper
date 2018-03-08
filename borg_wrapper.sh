@@ -2,7 +2,7 @@
 
 
 # Base Variables
-version="v1.0-pre"
+version="v1.1"
 
 # READ DIR 
 t_dir=$(dirname $0)
@@ -27,6 +27,7 @@ while (( "$#" )); do
 #		echo "--> $1 ($2)"
 
 	case $1 in
+
 	### READ PROJECT
 		-p|--project)
 			if [[ -z "$2" ]] ; then
@@ -35,24 +36,32 @@ while (( "$#" )); do
 			# start of implementation for ALL Keyword
 			elif [[ "$2" == "all" ]] ; then
 				bw_log "3" "you hit a special keyword !! - congrats - running through all projects (excluding smaple)"
-				for t_project in ${t_dir}/projects/* ; do
-    					if [[ -z $(echo ${t_project} | grep "sample.bw.sh") ]] ; then
+				bw_log "3" "no, just kidding - just listing them ;)"
+				for t_project in `ls ${t_dir}/projects/` ; do
+    					if [[ -z "$(echo ${t_project} | egrep "sample.bw.sh|global.sample.bw.sh|global.bw.sh")" ]] ; then
 						# source ${t_project}
-						echo $t_project
+						echo "> $t_project"
 						#$0 --project ${t_project} --"${bw_action}"
 					fi
-					exit 0
 				done
-			# end of implementation for ALL Keyboard
+				exit 0
+			# end of implementation for ALL Keyword
 			else
 				bw_o_project=$2
 				if [[ -f "${t_dir}/projects/${bw_o_project}.bw.sh" ]] ; then
 					source ${t_dir}/projects/${bw_o_project}.bw.sh
+
 				elif [[ -f ${bw_o_project} ]] ; then
 					source ${bw_o_project}
 				else 
 					bw_log "1" "could not find projectfile ${bw_o_project} - exiting"
 					exit 1
+				fi
+
+				if [[ -f "${t_dir}/projects/global.bw.sh" ]] ; then
+					source ${t_dir}/projects/global.bw.sh
+				else 
+					bw_log "3" "no global config file projects/global.bw.sh found ... "
 				fi
 			fi
 			shift
@@ -155,12 +164,14 @@ while (( "$#" )); do
 			
 
 		### OPTIONS
+		# DEbugging (ways to late, please fix me"
 		-d)
 			bw_log "2" "Sent debugging flag on CLI"
 			bw_o_debug="--debug"
 			bw_loglevel="3"
 		;;
-		-h|--help|*)
+		# HElp
+		-h|--help|*)i
 			f-bw_help
 			exit 0
 		;;
@@ -195,7 +206,7 @@ case ${bw_action} in
 	backup)
 		bw_log "3" "running ACTION: ${bw_action}"
 		f-bw_backup
-		bw_log "3" "finished ACTION: ${bw_actio}n"
+		bw_log "3" "finished ACTION: ${bw_action}"
 	;;	
 	check)
 		bw_log "3" "running ACTION: ${bw_action}"
@@ -249,5 +260,5 @@ case ${bw_action} in
 	;;		
 			
 esac
-	bw_log "3" "Exiting BORG-WRAOOER - thanks for using me ;)"
+	bw_log "3" "Exiting BORG-WRAPPER - thanks for using me ;)"
 exit 0

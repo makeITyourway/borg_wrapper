@@ -1,4 +1,9 @@
 ## Changelog
+### v1.1 (in progress)
+- fixed minor bugs
+- added global config file
+- added mail reporting (basic)
+
 ### v1.0 (20170725)
 - fixed some minor bugs
 - added POST and PRE Tasks for CRON RUN (--cron)

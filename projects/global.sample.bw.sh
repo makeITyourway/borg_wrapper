@@ -1,33 +1,21 @@
 #!/bin/bash
 
+# THIS IS THE BORG_WRAPPER GLOBAL CONFIG FILE 
+# EVERYTHING YOU SET IN HERE WILL OVERRIDE PROJECT CONFIGURATION
+#
+# cp global.sample.bw.sh global.bw.sh 
 
-#Specify your project name 
-# Defines the name of the backup project
-# DO NOT use SPACES
-	#Exampl:E bw_project="SampleProject2017"
-	bw_project="SampleProject2017"
-
-#BORG Repository path / url 
-# Defines, where the ackup will be storedi
-	# Example: bw_repository="/tmp/borg_sample_repo" 
-	# Example: bw_repository="user@hostname:/tmp/borg_sample_repo
-	bw_repository="/tmp/borg_sample_repo"
 
 #Repository password
 # Defines the encryption passphrase for the backup in the repository
 	# Example: bw_password="VerySecretPassword0"
-	bw_password="VerySecretPassword0"
+	#bw_password="VerySecretPassword0"
 
 
-#Backup include pattern
-# Defines a list of dirs that should be backupped seperated by space
-	# Example: bw_backupdirs="/tmp/1/ /tmp/2/"
-	bw_backupdirs="/tmp/1/ /tmp/2/"
-	
 #Backup exclude pattern
 # Defines a list of dirs that should be excluded from backup separated by space
 	# Example: bw_backupexclude="/tmp/*/logsi/ /tmp/*/session"
-	bw_backupexclude="/tmp/*/logsi/ /tmp/*/session"
+	#bw_backupexclude="/tmp/*/logsi/ /tmp/*/session"
 
 #Backup Compression settings
 # Define the compression methid and strength for your backup projecti
@@ -36,7 +24,7 @@
 # where 0 is always lowest compression and 9 is always highest compression
 # bw_compression="" means no compression
 	# Example:bw_compression="zlib,5" 
-	bw_compression="zlib,5"
+	#bw_compression="zlib,5"
 
 
 #Backup PRUNE config
@@ -49,19 +37,19 @@
 #KEEP-$TIME ( keep-hourly=N, keep-daily=N, keep-daily=N, keep-weekly=N, keep-monthly=N )
 # Uncomment this to specify pattern for specific time ranges
 	#Example: bw_backupkeeptime="--keep-daily=7 --keep-weekly=4 --keep-monthly=3"
-	bw_backupkeeptime="--keep-daily=7 --keep-weekly=4 --keep-monthly=3"
+	#bw_backupkeeptime="--keep-daily=7 --keep-weekly=4 --keep-monthly=3"
 	
 #Backup PREFIX
 # Defines the prefix type for the backup to store (only change if you know what you're doing)
 # this represesnts the dynamic part of the backupname (eg. hostname & project)
 	#Example: bw_backupprefix="$(hostname)-${bw_o_project}"
-	bw_backupprefix="$(hostname)-${bw_o_project}-"
+	#bw_backupprefix="$(hostname)-${bw_o_project}-"
 
 #Backup Suffix
 # Defines the suffix type for backup to sore (only change if you know what you're doing)
 # this represeents the dynamic part of the backupname (e.g. date)
 	# Example: bw_backupsuffix="$(date +%Y%m%d-%H%M%S)"
-	bw_backupsuffix="$(date +%Y%m%d-%H%M%S)"
+	#bw_backupsuffix="$(date +%Y%m%d-%H%M%S)"
 
 
 #PRE BACKUP TASK for CRON
@@ -69,14 +57,14 @@
 # "" means that nothing will be done
 # The command will be executed before a --cron will run
 	# Example bw_prebackuptask="/usr/bin/sudo date"
-	bw_prebackuptask=""
+	#bw_prebackuptask=""
 
 #POST BACKUP TASK for CRON
 # You can define a task or a list of tasks here (BASH SYNTAX ! watch out for correct escape pattern) 
 # "" means that nothing will be done
 # The command will be executed after a successful --cron command
 	# Example bw_postbackuptask="/usr/bin/sudo date"
-	bw_postbackuptask=""
+	#bw_postbackuptask=""
 
 
 #ICINGA VALUES FOR WARN AND CRIT (can be set via option in CLI whcih will overrite those settings)
@@ -85,7 +73,7 @@
 # use 86400 for a day, 90000 for 25 hours, 604800 for a week and so on ...
 	#Example: bw_icingaoptions="WARN,CRIT"
 	#Example: bw_icingaoptions="90000,604800"
-	bw_icingaoptions="90000,608400"
+	#bw_icingaoptions="90000,608400"
 
 
 
@@ -96,27 +84,27 @@
 #	0 = disable mail delivery (default)
 #	1 = trigger email only on backup_error
 #	2 = trigger email on success and on error 
-	# Example: bw_mailtrigger="0"
-	bw_mailtrigger="0"
+#	# Example: bw_mailtrigger="0"
+	#bw_mailtrigger=""
 
 #MAIL Notification addresses
 # You can enter email addresses, separated by comma
 	# Example: bw_mailrecipient="numberone@you.com,numbertwo@you.com"
 	# Example: bw_mailrecipient="you@you.com"
-	bw_mailrecipient=""
+	#bw_mailrecipient=""
 
 
 #Additional cli options 
 #feel free to specify additional options - be aware that this is used for all brog_commands
 	# Example: bw_additional_options="--debug --warning"
-	bw_additional_options="--info"
+	#bw_additional_options="--info"
 
 
 
 #Logfile for BorgWrapper
 # Defines the  place where to keep the logfile - you can use projectname
 	# Example: bw_logfile="./log/${bw_project}.log"
-	bw_logfile="./log/${bw_project}.log"
+	#bw_logfile="./log/${bw_project}.log"
 
 
 
@@ -140,5 +128,4 @@ bw_backupnowname="${bw_backupprefix}${bw_backupsuffix}"
 #/!\/!\ no shit - really don't touch this /!\/!\
 ################################################
 
-# generate a log entry when project file was read successfully
-bw_log "3" "Successfully sourced $bw_project "
+bw_log "3" "Successfully sourced global.bw.sh "

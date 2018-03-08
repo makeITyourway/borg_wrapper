@@ -21,5 +21,7 @@ function f-bw_backup {
 #catcherror
 	bw_log "2" "Finished ${bw_action}"
 
+	bw_sendmail "2" "SUCCESS" "Successfully Finished ${bw_action} of ${bw_project}"
+
 	return 0	
 }
