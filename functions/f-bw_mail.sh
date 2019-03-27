@@ -23,8 +23,8 @@ function bw_sendmail() {
 	
 	if [[ "${bw_action}" == "backup"  ]] || [[ "${bw_action}" == "cron"  ]] ; then
 		if [[ "${bw_mailtrigger}" -le "0" ]] ; then
-				# do nothing 
-				break
+				# do nothing
+				bw_log "3" "not sending email"
 		elif [[ "${my_level}" -le "${bw_mailtrigger}" ]] ;  then
 				bw_log "3" "sending email"
 				bw_sub_mail "BORG-Wrapper ${bw_project} ${my_keyword}" "${my_addinfo}"

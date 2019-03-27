@@ -11,10 +11,19 @@ function f-bw_icinga {
 	fi
 	f-bw_repostate
 
-	bw_log "2" "Starting ${bw_actiong}"
+	bw_log "2" "Starting ${bw_action}"
 	# get the latest backup time
 	t_lastbck_time=$(${borg_bin} list ${bw_repository} | tail -n 1 | cut -d "," -f 2 | cut -b 2-)
 	f-bw_catcherror $?
+
+	# Catch failed or empty response
+	if [[ -z ${t_lastbck_time} ]] ; then
+		bw_log "1" "Did not receive a correct value"
+		echo "Was not able to receive a value (mount error ?)" 
+		f-bw_catcherror 3
+		exit 3
+	fi
+
 	# calc to utime
 	t_lastbck_utime=$(date -d "${t_lastbck_time}" +%s)
 	# calc NOW to utime
@@ -35,10 +44,10 @@ function f-bw_icinga {
 		echo "BACKUP OK, last borg_wrapper backup was ${t_diff} seconds ago"
 		exit 0
 	else
-		echo "unknown"
+		echo "Unknown"
 		exit 3
 	fi	
 	
 		
-	bw_log "2" "Finished ${bw_actiong}"
+	bw_log "2" "Finished ${bw_action}"
 }

@@ -1,7 +1,7 @@
 #!/bin/bash
 function f-bw_shell {
 	f-bw_repostate
-	bw_log "2" "Starting ${bw_actiong}"
+	bw_log "2" "Starting ${bw_action}"
 	export BORG_REPO="${bw_repository}"
 	export BORG_PASSPHRASE="${bw_password}"
 	export repo="${bw_repository}"
